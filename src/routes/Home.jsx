@@ -78,12 +78,12 @@ const Home = () => {
 
   return (
     <>
-      <div className="w-[70%] m-auto px-10 py-4 bg-white border border-gray-400  rounded-lg">
+      <div className="md:w-[70%] w-80 m-auto px-10 py-4 bg-white border border-gray-400  rounded-lg">
         <div className="flex items-center">
           <div className="text-center w-96">
             <Title text={"My Url"} />
           </div>
-          <img src={homeimg} alt="" className=" w-40 h-40" />
+          <img src={homeimg} alt="" className="  hidden md:block w-40 h-40" />
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
