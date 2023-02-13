@@ -21,7 +21,6 @@ const Login = () => {
   const { required, patternEmail, minLength, validateTrim } = formValidate();
 
   const [loading, setLoading] = useState(false);
-  const [logIn, setLogIn] = useState(true);
 
   const {
     register,
@@ -55,29 +54,6 @@ const Login = () => {
   const handleClickGoogleAuth = () => {
     logInWithGoogle();
   };
-
-  if (logIn === true) {
-    return (
-      <div className=" w-60 md:w-[45%] m-auto p-4 bg-white border border-gray-400 rounded-lg">
-        <div className="w-full text-center">
-          <Button
-            text={"Email"}
-            type={"button"}
-            color={"blue"}
-            onClick={() => setLogIn(false)}
-          />
-        </div>
-        <div className="w-full text-center">
-          <Button
-            text={"Google"}
-            type={"button"}
-            color={"red"}
-            onClick={handleClickGoogleAuth}
-          />
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className=" w-60 md:w-[40%] m-auto p-4 bg-white border border-gray-400 rounded-lg">
@@ -115,12 +91,18 @@ const Login = () => {
           <FormError error={errors.password} />
         </FormInput>
 
-        <div className="text-center">
+        <div className="flex justify-between">
           {loading ? (
             <ButtonLoading />
           ) : (
             <Button text={"LogIn"} type={"submit"} />
           )}
+          <Button
+            text={"Google LogIn"}
+            type={"button"}
+            color={"red"}
+            onClick={handleClickGoogleAuth}
+          />
         </div>
       </form>
     </div>
