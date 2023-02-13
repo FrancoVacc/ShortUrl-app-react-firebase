@@ -15,12 +15,13 @@ import ButtonLoading from "../components/ButtonLoading";
 import login from "../img/login.jpg";
 
 const Login = () => {
-  const { logInUser } = useUserContext();
+  const { logInUser, logInUserGoogle } = useUserContext();
   const navigate = useNavigate();
 
   const { required, patternEmail, minLength, validateTrim } = formValidate();
 
   const [loading, setLoading] = useState(false);
+  const [logIn, setLogIn] = useState(true);
 
   const {
     register,
@@ -42,13 +43,49 @@ const Login = () => {
     }
   };
 
+  const logInWithGoogle = async () => {
+    try {
+      await logInUserGoogle();
+      navigate("/");
+    } catch (error) {
+      console.log(error.code);
+    }
+  };
+
+  const handleClickGoogleAuth = () => {
+    logInWithGoogle();
+  };
+
+  if (logIn === true) {
+    return (
+      <div className=" w-60 md:w-[45%] m-auto p-4 bg-white border border-gray-400 rounded-lg">
+        <div className="w-full text-center">
+          <Button
+            text={"Email"}
+            type={"button"}
+            color={"blue"}
+            onClick={() => setLogIn(false)}
+          />
+        </div>
+        <div className="w-full text-center">
+          <Button
+            text={"Google"}
+            type={"button"}
+            color={"red"}
+            onClick={handleClickGoogleAuth}
+          />
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="w-[45%] m-auto p-4 bg-white border border-gray-400 rounded-lg">
+    <div className=" w-60 md:w-[40%] m-auto p-4 bg-white border border-gray-400 rounded-lg">
       <div className="flex items-center">
         <div className="text-center w-72">
           <Title text={"Login"} />
         </div>
-        <img src={login} alt="" className=" w-40 h-40" />
+        <img src={login} alt="" className=" hidden md:block w-40 h-40" />
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormInput

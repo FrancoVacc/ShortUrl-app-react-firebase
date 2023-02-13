@@ -7,7 +7,7 @@ const RequireAuth = () => {
   if (!user) return <Navigate to="/login" />;
 
   return (
-    <div className="bg-[url('./img/fondo.png')]  py-5">
+    <div className="bg-[url('./img/fondo.png')] bg-contain  py-5">
       <Outlet />
     </div>
   );

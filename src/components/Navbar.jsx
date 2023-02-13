@@ -14,16 +14,16 @@ const Navbar = () => {
   };
 
   const classButtonBlue =
-    "text-white bg-blue-700 mx-2 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800";
+    "text-xs md:text-lg text-white bg-blue-700 md:mx-2 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800";
   const classButtonRed =
-    "text-white bg-red-700 mx-2 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800";
+    "text-xs md:text-lg text-white bg-red-700 md:mx-2 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800";
 
   return (
-    <nav className="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-600">
+    <nav className="bg-white px-2  sm:px-4 py-2.5 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-600">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <Link className="flex items-center" to={"/"}>
           <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-            URLShorter app
+            MyLink App
           </span>
         </Link>
         <div className="flex md:order-2">
@@ -42,7 +42,7 @@ const Navbar = () => {
                 Login
               </NavLink>
               <NavLink to={"/register"} className={classButtonBlue}>
-                Register
+                Sign In
               </NavLink>
             </>
           )}
